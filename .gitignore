@@ -12,6 +12,7 @@ vendor/
 # Логи и базы данных
 *.log
 *.sqlite
+db.sqlite3
 
 # Папки сборки и кэш
 dist/
