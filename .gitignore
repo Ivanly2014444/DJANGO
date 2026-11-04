@@ -1,0 +1,26 @@
+# Зависимости (тяжелые папки, которые всегда можно перекачать)
+node_modules/
+vendor/
+.pnpm-store/
+
+# Файлы окружения и секреты (НИКОГДА не коммитьте их!)
+.env
+.env.local
+*.pem
+*.key
+
+# Логи и базы данных
+*.log
+*.sqlite
+
+# Папки сборки и кэш
+dist/
+build/
+.cache/
+.eslintcache
+
+# Настройки редакторов кода и системы
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
