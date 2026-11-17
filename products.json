@@ -1,0 +1,15 @@
+[
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Ананас",
+        "overview": null,
+        "img": "",
+        "category": 2,
+        "price_per_item": 999,
+        "created_at": "2026-11-17T07:02:20.459Z",
+        "updated_at": "2026-11-17T07:04:52.922Z"
+    }
+}
+]
