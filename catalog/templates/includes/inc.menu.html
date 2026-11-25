@@ -1,0 +1,32 @@
+<header data-bs-theme="dark">
+    <div class="collapse text-bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4>О магазине</h4>
+                    <p class="text-body-secondary">Добро пожаловать в наш каталог продуктов. Здесь вы найдёте свежие овощи, фрукты и другие товары по доступным ценам.</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4>Меню</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'catalog:products_list' %}" class="text-white">Каталог товаров</a></li>
+                        <li><a href="{% url 'catalog:product_create' %}" class="text-white">Добавить товар</a></li>
+                        <li><a href="{% url 'catalog:contact' %}" class="text-white">Контакты</a></li>
+                        <li><a href="/admin/" class="text-white">Админ-панель</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar bg-dark shadow-sm">
+        <div class="container">
+            <a href="{% url 'catalog:products_list' %}" class="navbar-brand d-flex align-items-center">
+                <strong>Каталог</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Открыть меню">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>

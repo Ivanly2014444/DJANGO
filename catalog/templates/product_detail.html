@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-6">
+      {% if product.img %}
+        <img src="{{ product.img.url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+      {% else %}
+        <svg class="bd-placeholder-img img-fluid rounded" width="100%" height="350" xmlns="http://w3.org" role="img" preserveAspectRatio="xMidYMid slice">
+          <rect width="100%" height="100%" fill="#55595c"></rect>
+          <text x="50%" y="50%" fill="#eceeef" dy=".3em" text-anchor="middle">Нет изображения</text>
+        </svg>
+      {% endif %}
+    </div>
+
+    <div class="col-md-6">
+      <h1 class="display-6">{{ product.name }}</h1>
+      {% if product.category %}
+        <p class="text-body-secondary">Категория: <strong>{{ product.category.name }}</strong></p>
+      {% endif %}
+
+      <h3 class="my-3">
+        {% if product.price_per_item %}{{ product.price_per_item }} ₽{% else %}Цена по запросу{% endif %}
+      </h3>
+
+      <p class="lead">{{ product.overview|default:"Подробное описание товара пока не добавлено." }}</p>
+
+      <hr>
+      <p class="small text-body-secondary">Добавлено: {{ product.created_at|date:"d.m.Y" }}</p>
+
+      <a href="{% url 'catalog:products_list' %}" class="btn btn-outline-secondary mt-3">← Вернуться в каталог</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

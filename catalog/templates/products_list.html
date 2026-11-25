@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Каталог товаров</h1>
+      <p class="lead text-body-secondary">Все доступные позиции нашего магазина.</p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row">
+      {% for product in products %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          {% if product.img %}
+            <img src="{{ product.img.url }}" class="card-img-top p-3" alt="{{ product.name }}" style="height: 225px; object-fit: contain;">
+          {% else %}
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://w3.org" role="img" preserveAspectRatio="xMidYMid slice">
+              <rect width="100%" height="100%" fill="#55595c"></rect>
+              <text x="50%" y="50%" fill="#eceeef" dy=".3em" text-anchor="middle">Нет фото</text>
+            </svg>
+          {% endif %}
+
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ product.name }}</h5>
+            {% if product.category %}
+              <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.category.name }}</h6>
+            {% endif %}
+            <p class="card-text">{{ product.overview|default:"Описание отсутствует"|truncatechars:100 }}</p>
+            
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <div class="btn-group">
+                <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+              </div>
+              <small class="text-body-secondary fw-bold">
+                {% if product.price_per_item %}{{ product.price_per_item }} ₽{% else %}Цена не указана{% endif %}
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center">
+        <p class="text-body-secondary">В каталоге пока нет товаров.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
